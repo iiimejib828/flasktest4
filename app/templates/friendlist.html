@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Список друзей</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Список друзей</h1>
+
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="name">Ваше имя:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Ваш город:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="hobby">Ваши хобби:</label>
+                <textarea class="form-control" id="hobby" name="hobby" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="age">Ваш возраст:</label>
+                <input type="text" class="form-control" id="age" name="age" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Стать другом</button>
+        </form>
+        <hr>
+
+        <h2>Уже стали друзьями</h2>
+        {% for friend in friends %}
+
+        <div class="post">
+            <h4>{{ friend.name }}, {{ friend.age }}, {{ friend.city }}</h4>
+            <p>{{ friend.hobby }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
